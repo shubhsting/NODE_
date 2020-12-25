@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-
-mongoose.connect('mongodb+srv://shubham:shubham@cluster0.gpzau.mongodb.net/data?retryWrites=true&w=majority', {
+let url = require("../protect");
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
