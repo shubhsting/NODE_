@@ -65,10 +65,15 @@ async function updatePlanbyID(req, res) {
     try {
         let { id } = req.params;
         let updateObj = req.body;
-        let newdb = await planModel.findByIdAndUpdate(id, updateObj, { new: true });
+
+        let currPlan = await planModel.findById(id);
+        for (key in updateObj)
+            currPlan[key] = updateObj[key];
+        // let newdb = await planModel.findByIdAndUpdate(id, updateObj, { new: true });  validator check nhi krega
+        await currPlan.save();
         res.status(200).json({
             message: " plan Updated",
-            data: newdb
+            data: currPlan
         })
     }
     catch (error) {
@@ -87,7 +92,7 @@ async function deletePlanByID(req, res) {
         let newdb = await planModel.findByIdAndDelete(id);
         res.status(200).json({
             message: " plan Deleted",
-           
+
         })
     }
     catch (error) {

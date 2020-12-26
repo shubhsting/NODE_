@@ -38,12 +38,15 @@ let userSchema = new mongoose.Schema({
         },
         role: {
             type: String,
-            enum: ["admin", "user", "restaurant owner", "delievery boy"],
+            enum: ["admin", "user", "restaurant owner", "delivery boy"],
             default: "user"
         }
     }
 })
 
+userSchema.pre("save", function () {
+    this.confirmPassword = undefined;
+})
 
 const userModel = mongoose.model("userCollection", userSchema);
 module.exports = userModel;
