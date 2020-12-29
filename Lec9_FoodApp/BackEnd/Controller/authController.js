@@ -1,5 +1,8 @@
 const userModel = require("../Model/usersModel");
+
 const jwt = require("jsonwebtoken");
+
+
 async function login(req, res) {
     try {
         let { email, password } = req.body;
@@ -56,6 +59,8 @@ async function signup(req, res) {
         })
     }
 }
+
+
 async function protectRouter(req, res, next) {
     try {
         const { token } = req.body;
@@ -101,6 +106,8 @@ async function isAuthorized(req, res, next) {
         })
     }
 }
+
+
 module.exports.signup = signup;
 module.exports.login = login;
 module.exports.protectRouter = protectRouter;

@@ -5,6 +5,7 @@
 
 const planModel = require("../Model/plansModel")
 
+
 async function createPlan(req, res) {
     try {
         let sentplan = req.body;
@@ -61,6 +62,7 @@ async function getPlanByID(req, res) {
 }
 
 
+
 async function updatePlanbyID(req, res) {
     try {
         let id = req.params.id || req.id;
@@ -85,6 +87,8 @@ async function updatePlanbyID(req, res) {
 
 
 }
+
+
 
 async function deletePlanByID(req, res) {
     try {
