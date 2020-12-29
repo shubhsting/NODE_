@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const crypto = require("crypto");
 let url = require("../protect");
 mongoose.connect(url, {
     useNewUrlParser: true,
@@ -35,18 +35,42 @@ let userSchema = new mongoose.Schema({
                 return this.password == this.confirmPassword;
             },
             message: "Password does't match"
-        },
-        role: {
-            type: String,
-            enum: ["admin", "user", "restaurant owner", "delivery boy"],
-            default: "user"
         }
     }
+    ,
+    role: {
+        type: String,
+        enum: ["admin", "user", "restaurant owner", "delivery boy"],
+        default: "user"
+    },
+    pwToken: String,
+    tokenTime: Number
+
 })
 
 userSchema.pre("save", function () {
     this.confirmPassword = undefined;
 })
+userSchema.methods.createPwToken = function () {
 
+
+    let token = crypto.randomBytes(32).toString("hex");
+    let time = Date.now() * 60 * 10 * 1000;
+
+    this.pwToken = token;
+    this.tokenTime = time;
+    return this.pwToken;
+
+}
+
+
+userSchema.methods.resetPassword = function (pass, cpass) {
+
+    this.password = pass;
+    this.confirmPassword = cpass;
+
+    this.pwToken = undefined;
+    this.tokenTime = undefined;
+}
 const userModel = mongoose.model("userCollection", userSchema);
 module.exports = userModel;

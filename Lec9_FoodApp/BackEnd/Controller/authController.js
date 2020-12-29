@@ -90,7 +90,8 @@ async function isAuthorized(req, res, next) {
     try {
         let id = req.id;
         let user = await userModel.findById(id);
-        if (user == "admin") {
+        console.log(user.role);
+        if (user.role == "admin") {
             next();
         }
         else {
@@ -107,8 +108,65 @@ async function isAuthorized(req, res, next) {
     }
 }
 
+async function forgotPassword(req, res, next) {
+    try {
+
+        let { email } = req.body;
+        let user = await userModel.findOne({ email: email });
+        if (user) {
+            let token = user.createPwToken();
+            let update = await user.save({ validateBeforeSave: false })
+
+            let resetLink = `http://localhost:3000/user/resetPassword/${token}`
+            res.json({
+                message: "Token set Succcessfully and link send!!!!",
+                data: resetLink
+            })
+        }
+    }
+    catch (e) {
+        res.json({
+            message: "Failed to change password"
+        })
+    }
+}
+
+
+async function resetPassword(req, res, next) {
+    try {
+        const token = req.params.token;
+        console.log(token);
+        const { password, confirmPassword } = req.body;
+        const user = await userModel.findOne({
+            pwToken: token,
+            tokenTime: { $gt: Date.now() }
+        })
+        if (user) {
+            user.resetPassword(password, confirmPassword);
+            await user.save();
+            res.json({
+                message: "Password reset successfully!!!",
+                data: user
+            })
+        }
+        else {
+            res.json({
+                message: "Link Expired!!!!"
+
+            })
+        }
+    }
+    catch (e) {
+        res.json({
+            message: "Error Occured",
+            error: e
+        })
+    }
+}
 
 module.exports.signup = signup;
 module.exports.login = login;
 module.exports.protectRouter = protectRouter;
 module.exports.isAuthorized = isAuthorized;
+module.exports.forgotPassword = forgotPassword;
+module.exports.resetPassword = resetPassword;
