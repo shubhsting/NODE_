@@ -49,8 +49,9 @@ async function getAllUsers(req, res) {
 async function getUserByID(req, res) {
 
     try {
-        let { id } = req.params;
+        let id = req.id;
         let user = await userModel.findById(id);
+        console.log(user)
         res.status(200).json({
             message: "Successfully get user by id",
             data: user
@@ -67,8 +68,8 @@ async function getUserByID(req, res) {
 
 async function updateUserByID(req, res) {
     try {
-        let { id } = req.params;
-        let updateObj = req.body;
+        let id = req.id;
+        let updateObj = req.body.updateObject;
         let newdb = await userModel.findByIdAndUpdate(id, updateObj, { new: true });
         res.status(200).json({
             message: " user Updated",
@@ -87,16 +88,24 @@ async function updateUserByID(req, res) {
 
 async function deleteUserByID(req, res) {
     try {
-        let { id } = req.params;
+        let id = req.id;
         let newdb = await userModel.findByIdAndDelete(id);
-        res.status(200).json({
-            message: " User Deleted",
-           
-        })
+        if (newdb) {
+            res.status(200).json({
+                message: " User Deleted",
+
+            })
+        }
+        else {
+            res.status(200).json({
+                message: "User Not found",
+                error: error
+            })
+        }
     }
     catch (error) {
         res.status(404).json({
-            message: "User Not found",
+            message: "Failed to delete!!!!",
             error: error
         })
     }

@@ -10,6 +10,7 @@ async function login(req, res) {
             if (user.password == password) {
                 // token ban na chahie
                 let token = jwt.sign({ id: user["_id"] }, "1234567890");
+                console.log(user["_id"]);
                 res.status(200).json({
                     message: "Logged in succesfully !!",
                     data: loggedInUser[0],
@@ -58,9 +59,13 @@ async function signup(req, res) {
 async function protectRouter(req, res, next) {
     try {
         const { token } = req.body;
-        console.log("Insside ProtectRoute Function")
+        console.log("Inside ProtectRoute Function")
         let payload = jwt.verify(token, "1234567890");
-        if (payload) { next(); }
+        if (payload) {
+            req.id = payload.id;
+            console.log(req.id)
+            next();
+        }
         else {
             res.json({
                 message: "Please Login!!!"
@@ -73,6 +78,30 @@ async function protectRouter(req, res, next) {
         })
     }
 }
+
+
+
+async function isAuthorized(req, res, next) {
+    try {
+        let id = req.id;
+        let user = await userModel.findById(id);
+        if (user == "admin") {
+            next();
+        }
+        else {
+            res.status(200).json({
+                message: "You dont have admin rights!!!"
+            })
+        }
+    }
+    catch (e) {
+        res.status(501).json({
+            message: "Failed to authorize!!!",
+            error: e
+        })
+    }
+}
 module.exports.signup = signup;
 module.exports.login = login;
 module.exports.protectRouter = protectRouter;
+module.exports.isAuthorized = isAuthorized;

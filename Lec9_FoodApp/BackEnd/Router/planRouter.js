@@ -1,5 +1,5 @@
 const express = require("express");
-const { protectRouter } = require("../Controller/authController.js");
+const { protectRouter, isAuthorized } = require("../Controller/authController.js");
 const planRouter = express.Router();
 const { getAllPlans, createPlan, getPlanByID, updatePlanbyID, deletePlanByID } = require("../Controller/planController.js");
 
@@ -7,7 +7,10 @@ const { getAllPlans, createPlan, getPlanByID, updatePlanbyID, deletePlanByID } =
 planRouter.route("")
     .get(protectRouter, getAllPlans)
     .post(createPlan);
-planRouter.route("/:id").get(getPlanByID).patch(updatePlanbyID).delete(deletePlanByID);
+planRouter.route("/:id")
+    .get(getPlanByID)
+    .patch(protectRouter, isAuthorized, updatePlanbyID)
+    .delete(protectRouter, isAuthorized, deletePlanByID);
 
 
 module.exports = planRouter;

@@ -63,8 +63,8 @@ async function getPlanByID(req, res) {
 
 async function updatePlanbyID(req, res) {
     try {
-        let { id } = req.params;
-        let updateObj = req.body;
+        let id = req.params.id || req.id;
+        let updateObj = req.body.updateObject;
 
         let currPlan = await planModel.findById(id);
         for (key in updateObj)
