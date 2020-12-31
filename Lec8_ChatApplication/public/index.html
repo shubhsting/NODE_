@@ -9,37 +9,58 @@
 <link rel="stylesheet" href="./index.css">
 
 <body>
-    <div class="cwindow">
-        <div class="content">
-            <div class="joinedchat">
+    <div class="full">
+        <div class="usersonline">
+            <div class="oneuser"></div>
+        </div>
+        <!-- <div class="join">
+        <input type="text" id="joinname"></input>
+        <button id="sendname">Send</button>
+    </div> -->
 
-            </div>
-            <div class="leftchat">
+        <div class="cwindow">
+            <div class="content">
+                <div class="joinedchat">
 
-            </div>
-            <div class="left">
-                <div class="name">
-                    Shubham
                 </div>
-                <div class="message">
-                    uhciuebvb
+                <div class="leftchat">
+                    hello there
+                </div>
+                <div class="left">
+                    <div class="name">
+                        Shubham
+                    </div>
+                    <div class="message">
+                        uhciuebvb
+                    </div>
+                </div>
+                <div class="right">
+
                 </div>
             </div>
-            <div class="right">
+            <div class="bottom">
+                <input type="text" id="type"></input>
+                <button id="send">Send</button>
 
             </div>
-
-
 
         </div>
-        <div class="bottom">
-            <input type="text" id="type"></input>
-            <button id="send">Send</button>
 
+
+
+        <div class="myprofile">
+            <div class="profilep"></div>
+            <div class="bio"></div>
         </div>
 
     </div>
     <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"
+        integrity="sha512-Jr0UIR/Q8MUX+93zjDOhuDUKLqJZObtwpkLJQcR9qMaLgL0thet39IORuavUaZFkZ8a4ktrUsKPM9mf5LWMduA=="
+        crossorigin="anonymous"></script>
+    <script>
+        const socket = io.connect("http://localhost:3000");
+    </script>
 </body>
 
 </html>

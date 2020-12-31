@@ -1,11 +1,23 @@
+*{
+    background-color: black;
+}
 .cwindow{
-    margin: auto;
-    height: 650px;
+    height: 500px;
     width: 500px;
     background: burlywood;
 }
+.full{
+    height: 90vh;
+    width: 100hh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hidden{
+    display: none;
+}
 .content{
-    height: 90%;
+    height: 80%;
     background-color: lime;
     overflow: auto;
 }
@@ -16,6 +28,34 @@
     margin-right: 60px;
     border-radius: 10px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.myprofile{
+    height: 500px;
+    width: 300px;
+    background: green;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+.profilep{
+    height: 200px;
+    width: 200px;
+    background: white;
+    border-radius: 200px;
+}
+.bio{
+    height: 200px;
+    width: 200px;
+    background: lightblue;
+}
+.usersonline{
+    height: 500px;
+    width: 300px;
+    background: green;
 }
 .joinedchat{
     background: green;
@@ -24,14 +64,16 @@
     margin-right: 60px;
     border-radius: 10px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .left{
-   
-    color: white;
+    color: green;
     min-width: 111px;
     height: 79px;
     max-width: 306px;
-    background: gray;
+    background:white;
     border-radius: 20px;
     margin-left: 0px;
     margin-top: 20px;
@@ -40,12 +82,12 @@
     min-width: 111px;
     height: 79px;
     max-width: 306px;
-    background: gray;
+    background: white;
     border-radius: 20px;
     margin-right: 0px;
     margin-left: 192px;
     margin-top: 20px;
-    color: white;
+    color: green;
 }
 .bottom{
     display: flex;
