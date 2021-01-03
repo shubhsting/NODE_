@@ -1,0 +1,40 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family:Poppins;
+    background: url(./backo.jpg) no-repeat center fixed ,linear-gradient(rgb(236, 231, 231), #e9dbdb);
+    background-size: cover;
+}
+
+
+.navbar{
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* background-color: #D4D7DE; */
+    width: 100%;
+    height: 70px;
+    z-index: 1;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-right: 5%;
+}
+
+a{
+    margin: 30px;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+a:hover{
+    color: white;
+}
+
+
