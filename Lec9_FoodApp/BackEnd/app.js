@@ -19,7 +19,7 @@ app.set("views" , path.join(__dirname,"View"));
 
 app.use("/api/plans", planRouter);
 app.use("/api/user", userRouter);
-app.use("",viewRouter)
+app.use("/",viewRouter)
 
 
 

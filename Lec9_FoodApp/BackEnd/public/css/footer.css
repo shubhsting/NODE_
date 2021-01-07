@@ -1,4 +1,4 @@
-
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
   .row{
     margin-left: 0px;
     margin-right: 0px;
@@ -7,7 +7,7 @@
     padding: 50px;
     color: #f0f9ff;
     margin-top: 80px;
-    background: black ;
+    /* background: black ; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -71,9 +71,9 @@
     opacity: 0.8;
     font-size: 16px;
   }
-  @media (max-width: 767px) {
+ @media (max-width: 767px) {
   
-      .global .curve{
+      .global .curve{ 
         left: 5%;
         height: 70%;
       }
@@ -89,5 +89,4 @@
       .social{
         margin: 0 auto;
       }
-  }
-  
+  } 

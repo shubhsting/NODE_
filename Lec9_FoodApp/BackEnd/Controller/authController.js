@@ -53,7 +53,7 @@ async function signup(req, res) {
         })
     }
     catch (error) {
-        res.status(501).json({
+        res.status(201).json({
             message: "Failed to sign up",
             error: error
         })

@@ -19,24 +19,26 @@ html
         h1 SIGNUP
         .textbox
             i.fas.fa-user
-            input(type='text' placeholder='Username')
+            input#name(type='text' placeholder='Username')
         .textbox
             i.fas.fa-envelope-open-text
-            input(type='email' placeholder='Email Address')
+            input#email(type='email' placeholder='Email Address')
         .textbox
             i.fas.fa-lock
-            input(type='password' placeholder='Password')
+            input#pass(type='password' placeholder='Password')
         .textbox
             i.fas.fa-lock
-            input(type='password' placeholder='Confirm Password')
+            input#cpass(type='password' placeholder='Confirm Password')
         .textbox
             i.fa.fa-users(aria-hidden='true')
             select#role(name='role')
                 option#place(value='' disabled='' selected='') Select your role
-                option(value='Admin') Admin
+                option(value='admin') Admin
                 option(value='user') User
-                option(value='Restaurant-Owner') Restaurant-Owner
-                option(value='Delievery Boy') Delievery Boy
-        input.btn(type='button' value='Sign Up')
-//-    include footer.pug
+                option(value='restaurant owner') Restaurant-Owner
+                option(value='delievery boy') Delievery Boy
+        input.btn.sub(type='button' value='Sign Up')
+        block scripts
+            script(src="./js/signup.js")
+   include footer.pug
   
