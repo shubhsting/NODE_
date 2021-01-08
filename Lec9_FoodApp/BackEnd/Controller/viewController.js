@@ -47,8 +47,17 @@ async function forgotPassPage(req, res) {
         console.log(error);
     }
 }
+async function getProfilePage(req, res) {
+    try {
+        res.render("profile.pug", {});
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 module.exports.getHomePage = getHomePage;
 module.exports.getloginPage = getloginPage;
 module.exports.getSignUpPage = getSignUpPage;
 module.exports.forgotPassPage = forgotPassPage;
 module.exports.getPlansPage = getPlansPage;
+module.exports.getProfilePage=getProfilePage;
