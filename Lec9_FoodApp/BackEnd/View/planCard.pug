@@ -1,28 +1,28 @@
 link(rel="stylesheet" , href="./css/plan.css")
 .plan
   h3.plan-title
-    | Starter
+    | #{plan.name}
   .plan-cost
-    span.plan-price $19
+    span.plan-price $#{plan.price}
     span.plan-type / Monthly
   ul.plan-features
     li
       i.ion-checkmark  
-      | 5GB Linux Web Space
+      | That's only #{Math.ceil(plan.price/(plan.duration))} $ per month
     li
       i.ion-checkmark  
-      | 5 MySQL Databases
+      | 1 Meal Every Day
     li
       i.ion-checkmark  
-      | Unlimited Email
+      | Rated #{plan.ratings} out of 10
     li
       i.ion-checkmark  
-      | 250Gb Monthly Transfer
+      | Access to new Creations
     li
       i.ion-checkmark  
-      | 24/7 Tech Support
+      | 24/7 Order Available
     li
       i.ion-checkmark  
-      | Daily Backups
+      | Free Delievery
   .plan-select
     a(href='') Select Plan

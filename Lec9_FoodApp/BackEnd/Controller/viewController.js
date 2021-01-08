@@ -1,3 +1,4 @@
+const planModel = require("../Model/plansModel")
 async function getHomePage(req, res) {
     try {
         res.render("homepage.pug", {});
@@ -31,7 +32,8 @@ async function getSignUpPage(req, res) {
 
 async function getPlansPage(req, res) {
     try {
-        res.render("plans.pug", {plans:["hello","moto","robo","hello","moto","robo","hello","moto","robo","hello","moto","robo"]});
+        let plans=await planModel.find();
+        res.render("plans.pug", {plans:plans});
     }
     catch (error) {
         console.log(error);
