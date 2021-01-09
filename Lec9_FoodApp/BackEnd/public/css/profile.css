@@ -54,6 +54,9 @@
     color: #353c4e;
     text-transform: uppercase;
     letter-spacing: 5px;
+    font-weight: 800;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .wrapper .right .info_data,
@@ -71,6 +74,7 @@
 .wrapper .right .projects_data .data h4 {
     color: #353c4e;
     margin-bottom: 5px;
+    
 }
 
 .wrapper .right .info_data .data p,

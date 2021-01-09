@@ -1,7 +1,8 @@
 const planModel = require("../Model/plansModel")
 async function getHomePage(req, res) {
     try {
-        res.render("homepage.pug", {});
+        let plans=await planModel.find();
+        res.render("homepage.pug", {plans:plans});
     }
     catch (error) {
         console.log(error);
