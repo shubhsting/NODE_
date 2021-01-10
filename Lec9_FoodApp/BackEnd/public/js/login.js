@@ -9,10 +9,13 @@ button.addEventListener("click", function (e) {
         console.log(password.value);
         axios.post("http://localhost:3000/api/user/login", { email: email.value, password: password.value }).then((obj) => {
             console.log(obj);
+            if (obj.data.data) {
+                window.location.href = "/";
+            }
         })
             .catch((error) => {
-                alert("error")
+                console.log(error);
             })
     }
-    alert("button clicked");
+    
 })

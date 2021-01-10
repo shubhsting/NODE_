@@ -2,12 +2,13 @@ const express = require("express");
 const planRouter = require("./Router/planRouter.js");
 const userRouter = require("./Router/userRouter.js");
 const { viewRouter } = require("./Router/viewRouter.js");
+const cookieParser=require("cookie-parser");
 
 const path = require("path");
 const app = express();
 
 app.use(express.json());
-
+app.use(cookieParser());
 app.use(express.static(__dirname+"/public"));
 
 app.set("view engine" , "pug");

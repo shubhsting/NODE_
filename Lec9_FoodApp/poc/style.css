@@ -57,6 +57,9 @@ body{
     float: left;
     margin: 0 10px;
   }
+  .drop.down-arrow{
+    pointer-events: none;
+}
 .btn{
   width: 100%;
   background: none;

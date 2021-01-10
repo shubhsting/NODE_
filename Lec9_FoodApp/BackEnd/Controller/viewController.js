@@ -1,8 +1,9 @@
-const planModel = require("../Model/plansModel")
+const planModel = require("../Model/plansModel");
+const userModel = require("../Model/usersModel");
 async function getHomePage(req, res) {
     try {
-        let plans=await planModel.find();
-        res.render("homepage.pug", {plans:plans});
+        let plans = await planModel.find();
+        res.render("homepage.pug", { name: req.name, plans: plans });
     }
     catch (error) {
         console.log(error);
@@ -12,7 +13,7 @@ async function getHomePage(req, res) {
 
 async function getloginPage(req, res) {
     try {
-        res.render("login.pug", {});
+        res.render("login.pug", { name: req.name });
     }
     catch (error) {
         console.log(error);
@@ -22,7 +23,7 @@ async function getloginPage(req, res) {
 
 async function getSignUpPage(req, res) {
     try {
-        res.render("signup.pug", {});
+        res.render("signup.pug", { name: req.name });
     }
     catch (error) {
         console.log(error);
@@ -33,8 +34,8 @@ async function getSignUpPage(req, res) {
 
 async function getPlansPage(req, res) {
     try {
-        let plans=await planModel.find();
-        res.render("plans.pug", {plans:plans});
+        let plans = await planModel.find();
+        res.render("plans.pug", { name: req.name, plans: plans });
     }
     catch (error) {
         console.log(error);
@@ -42,7 +43,7 @@ async function getPlansPage(req, res) {
 }
 async function forgotPassPage(req, res) {
     try {
-        res.render("forgotpass.pug", {});
+        res.render("forgotpass.pug", { name: req.name });
     }
     catch (error) {
         console.log(error);
@@ -50,7 +51,8 @@ async function forgotPassPage(req, res) {
 }
 async function getProfilePage(req, res) {
     try {
-        res.render("profile.pug", {});
+        let user = await userModel.findById(req.id);
+        res.render("profile.pug", { name: req.name, user: user });
     }
     catch (error) {
         console.log(error);
@@ -61,4 +63,4 @@ module.exports.getloginPage = getloginPage;
 module.exports.getSignUpPage = getSignUpPage;
 module.exports.forgotPassPage = forgotPassPage;
 module.exports.getPlansPage = getPlansPage;
-module.exports.getProfilePage=getProfilePage;
+module.exports.getProfilePage = getProfilePage;

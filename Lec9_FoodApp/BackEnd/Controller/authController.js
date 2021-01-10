@@ -6,14 +6,13 @@ const jwt = require("jsonwebtoken");
 async function login(req, res) {
     try {
         let { email, password } = req.body;
-        console.log(email, password);
         let loggedInUser = await userModel.find({ email: email });
         if (loggedInUser.length) {
             let user = loggedInUser[0];
             if (user.password == password) {
                 // token ban na chahie
                 let token = jwt.sign({ id: user["_id"] }, "1234567890");
-                console.log(user["_id"]);
+                res.cookie('jwt', token, { httpOnly: true });
                 res.status(200).json({
                     message: "Logged in succesfully !!",
                     data: loggedInUser[0],
@@ -60,10 +59,42 @@ async function signup(req, res) {
     }
 }
 
+async function isLoggedIn(req, res, next) {
+    try {
 
+        let token = req.cookies.jwt;
+        let payload = jwt.verify(token, "1234567890");
+        if (payload) {
+            let user = await userModel.findById(payload.id);
+            req.name = user.name;
+            req.id = payload.id;
+            next();
+        }
+        else {
+
+            next();
+        }
+    }
+
+    catch (e) {
+        next();
+    }
+}
+
+async function logout(req, res, next) {
+    try {
+        res.clearCookie("jwt");
+        res.redirect("/");
+    }
+    catch (e) {
+        res.json({
+            e
+        })
+    }
+}
 async function protectRouter(req, res, next) {
     try {
-        const { token } = req.body;
+        const token = req.cookies.jwt;
         console.log("Inside ProtectRoute Function")
         let payload = jwt.verify(token, "1234567890");
         if (payload) {
@@ -170,3 +201,5 @@ module.exports.protectRouter = protectRouter;
 module.exports.isAuthorized = isAuthorized;
 module.exports.forgotPassword = forgotPassword;
 module.exports.resetPassword = resetPassword;
+module.exports.isLoggedIn = isLoggedIn;
+module.exports.logout = logout;

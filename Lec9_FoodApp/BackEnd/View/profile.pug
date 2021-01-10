@@ -5,15 +5,15 @@ block content
   .wrapper
    .left
     img(src='https://i.imgur.com/cMy8V5j.png' alt='user' width='100')
-    h4 Alex William
-    p UI Developer
+    h4 #{user.name}
+    p #{user.role}
    .right
     .info
      h3 Information
      .info_data
       .data
        h4 Email
-       p(contenteditable='true') alex@gmail.com
+       p(contenteditable='true') #{user.email}
       .data
        h4 Phone
        p 0001-213-998761

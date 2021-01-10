@@ -6,12 +6,13 @@
     <title></title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="login-box">
         <h1>SIGNUP</h1>
         <div class="textbox">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username">
+            <input type="text" placeholder="Username" id="po">
         </div>
         <div class="textbox">
             <i class="fas fa-envelope-open-text"></i>
@@ -28,8 +29,8 @@
         <div class="textbox">
             <i class="fa fa-users" aria-hidden="true"></i>
             <select name="role" id="role">
-                <option value="" disabled selected id="place">Select your role</option>
-                <option value="Admin">Admin</option>
+                <option value="" selected id="place"></option>
+                <option value="Admin"> <i class="fas fa-lock"></i></option>
                 <option value="user">User</option>
                 <option value="Restaurant-Owner">Restaurant-Owner</option>
                 <option value="Delievery Boy">Delievery Boy</option>
@@ -38,5 +39,12 @@
         <input type="button" class="btn" value="Sign Up">
     </div>
 </body>
+<script>
+    let op = document.querySelector("#role");
+    let lo = document.querySelector("#po");
+    lo.addEventListener("click", function () {
+        op.
+    })
+</script>
 
 </html>

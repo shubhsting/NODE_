@@ -6,8 +6,14 @@ link(rel="stylesheet" , href="./css/header.css")
     li
       a(href='#about') Details
     li
-      a(href='#portfolio') Reviews
-    li
       a(href='/plans') Plans
-    li
-      a(href='/signup') Signup
+    if(name)
+      li
+        a(href='/profile') #{name}
+      li
+        a(href='/logout') logout
+    else
+      li
+        a(href='#portfolio') Reviews
+      li
+        a(href='/login') Login
