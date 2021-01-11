@@ -20,12 +20,12 @@ async function login(req, res) {
                 });
             } else {
                 res.status(200).json({
-                    message: "Email and Password didn't Matched !!",
+                    message: "Email and Password didn't match !!",
                 });
             }
         } else {
             res.status(200).json({
-                message: "No User Found SignUp First",
+                message: "No User Found !!!",
             });
         }
     } catch (error) {

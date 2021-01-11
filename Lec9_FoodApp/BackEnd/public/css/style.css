@@ -1,25 +1,35 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
-*{
+
+* {
   box-sizing: border-box;
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   font-family: 'Lato', sans-serif;
 }
-body{
-  background-image:linear-gradient(rgba(41, 41, 41, 0.596) , rgb(0, 0, 0)),url("../images/backo.jpg");
-    /* height: 100vh; */
-    background-size: 100vw; 
-    background-attachment: fixed; 
- 
+
+body {
+  background-image: linear-gradient(rgba(41, 41, 41, 0.596), rgb(0, 0, 0)), url("../images/backo.jpg");
+  /* height: 100vh; */
+  background-size: 100vw;
+  background-attachment: fixed;
+
 }
-.login-box{
+
+.message {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
   width: 280px;
   position: relative;
   top: 50%;
   left: 42%;
- margin-top: 70px;
+  margin-top: 70px;
 }
-.login-box h1{
+
+.login-box h1 {
   color: white;
   float: left;
   font-size: 40px;
@@ -27,7 +37,8 @@ body{
   margin-bottom: 50px;
   padding: 13px 0;
 }
-.textbox{
+
+.textbox {
   width: 100%;
   overflow: hidden;
   font-size: 20px;
@@ -35,16 +46,19 @@ body{
   margin: 8px 0;
   border-bottom: 1px solid #4caf50;
 }
-.textbox:hover{
+
+.textbox:hover {
   border-bottom: 4px solid #4caf50;
 }
-.textbox i{
+
+.textbox i {
   color: white;
   width: 26px;
   float: left;
   text-align: center;
 }
-.textbox input{
+
+.textbox input {
   border: none;
   outline: none;
   background: none;
@@ -55,17 +69,18 @@ body{
   margin: 0 10px;
 }
 
-.textbox select{
-    border: none;
-    outline: none;
-    background:none;
-    color: #4caf50;
-    font-size: 18px;
-    width: 80%;
-    float: left;
-    margin: 0 10px;
-  }
-.btn{
+.textbox select {
+  border: none;
+  outline: none;
+  background: none;
+  color: #4caf50;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+}
+
+.btn {
   width: 100%;
   background: none;
   border: 2px solid #4caf50;
@@ -75,21 +90,17 @@ body{
   cursor: pointer;
   margin: 12px 0;
 }
-.btn:hover{
+
+.btn:hover {
   transform: scale(1.2);
   border: 4px solid #4caf50;
 }
-.login-box h3{
-    float: left;
-    color: white;
-    font-size: 25px;
-    border-bottom: 6px solid #4caf50;
-    margin-bottom: 50px;
-    padding: 13px 0;
-  }
 
-
-
-
-
-  
+.login-box h3 {
+  float: left;
+  color: white;
+  font-size: 25px;
+  border-bottom: 6px solid #4caf50;
+  margin-bottom: 50px;
+  padding: 13px 0;
+}
