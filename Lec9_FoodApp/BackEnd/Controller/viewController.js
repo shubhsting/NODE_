@@ -3,7 +3,7 @@ const userModel = require("../Model/usersModel");
 async function getHomePage(req, res) {
     try {
         let plans = await planModel.find();
-        res.render("homepage.pug", { name: req.name, plans: plans });
+        res.render("homepage.pug", { name: req.name, plans: [plans[0], plans[1], plans[2]] });
     }
     catch (error) {
         console.log(error);

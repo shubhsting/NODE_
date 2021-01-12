@@ -29,9 +29,11 @@
     margin-bottom: 0;
   }
   .global ul a{
-    color: #fff;
+   
+    color:white;
     text-decoration: none;
-    transition: 0.3s;
+    text-transform: uppercase;
+  
   }
   .global ul a:hover{
     opacity: 0.8;

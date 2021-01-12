@@ -13,7 +13,7 @@
     justify-content: space-around;
 }
 
-a {
+.nav a {
     
     color:white;
     text-decoration: none;
@@ -21,7 +21,7 @@ a {
     font-size: 20px;
 }
 
-a:hover {
+.nav a:hover {
     border-bottom: 1px solid #4caf50;
     margin-bottom: 50px;
     padding: 10px 10px 10px 10px;
