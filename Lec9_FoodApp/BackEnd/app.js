@@ -2,9 +2,11 @@ const express = require("express");
 const planRouter = require("./Router/planRouter.js");
 const userRouter = require("./Router/userRouter.js");
 const { viewRouter } = require("./Router/viewRouter.js");
+const { reviewRouter } = require("./Router/reviewRouter.js");
 const cookieParser=require("cookie-parser");
 
 const path = require("path");
+
 const app = express();
 
 app.use(express.json());
@@ -21,6 +23,7 @@ app.set("views" , path.join(__dirname,"View"));
 app.use("/api/plans", planRouter);
 app.use("/api/user", userRouter);
 app.use("/",viewRouter)
+app.use("/user",reviewRouter)
 
 
 

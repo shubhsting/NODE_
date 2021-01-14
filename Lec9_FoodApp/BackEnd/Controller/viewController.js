@@ -1,5 +1,7 @@
 const planModel = require("../Model/plansModel");
 const userModel = require("../Model/usersModel");
+const reviewModel = require("../Model/reviewModel");
+
 async function getHomePage(req, res) {
     try {
         let plans = await planModel.find();
@@ -9,7 +11,15 @@ async function getHomePage(req, res) {
         console.log(error);
     }
 }
-
+async function getreviews(req, res) {
+    try {
+        let reviews = await reviewModel.find();
+        res.render("reviews.pug", { reviews: reviews });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 
 async function getloginPage(req, res) {
     try {
@@ -64,3 +74,4 @@ module.exports.getSignUpPage = getSignUpPage;
 module.exports.forgotPassPage = forgotPassPage;
 module.exports.getPlansPage = getPlansPage;
 module.exports.getProfilePage = getProfilePage;
+module.exports.getreviews = getreviews;
