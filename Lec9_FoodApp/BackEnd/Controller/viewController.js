@@ -23,7 +23,7 @@ async function getreviews(req, res) {
             reviews = await reviewModel.find({ approved: true });
            
         }
-        res.render("reviews.pug", { reviews: reviews });
+        res.render("reviews.pug", { reviews: reviews,name: req.name });
     }
     catch (error) {
         console.log(error);
