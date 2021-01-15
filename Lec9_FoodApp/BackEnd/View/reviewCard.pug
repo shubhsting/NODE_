@@ -1,5 +1,11 @@
 .smallreview
  .contentofreview #{review.body}
  .bottomofreview
-  .nameofreview #{review.date}
-  .dateofreview #{review.Rname}
+  if review.approved==true
+   .nameofreview #{review.date}
+   .dateofreview #{review.Rname}
+  else
+   a(href='/reviews' id=review.id class="opop") Approve Review
+   
+   
+   

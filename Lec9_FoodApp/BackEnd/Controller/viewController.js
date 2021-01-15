@@ -13,7 +13,16 @@ async function getHomePage(req, res) {
 }
 async function getreviews(req, res) {
     try {
-        let reviews = await reviewModel.find();
+
+        let role = req.role;
+        let reviews;
+        if (role == "admin") {
+            reviews = await reviewModel.find({ approved: false });
+        }
+        else {
+            reviews = await reviewModel.find({ approved: true });
+           
+        }
         res.render("reviews.pug", { reviews: reviews });
     }
     catch (error) {

@@ -1,5 +1,11 @@
 extends base.pug
 block content
  .review
+  h1 REVIEWS
   each review in reviews
    include reviewCard.pug
+ block scripts
+  script(src="./js/review.js")
+
+
+   
