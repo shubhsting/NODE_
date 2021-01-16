@@ -11,13 +11,13 @@ async function createPlan(req, res) {
         let sentplan = req.body;
         let plan = await planModel.create(sentplan)
         res.status(201).json({
-            message: "Successfully created a plan",
+            message: "Successfully Created a Plan!!",
             data: plan
         })
     }
     catch (error) {
-        res.status(501).json({
-            message: "Not able to create plan",
+        res.status(201).json({
+            message: "Error !! Kindly Verify Plan !!",
             error: error.errors.discount.message
         })
     }
@@ -71,7 +71,6 @@ async function updatePlanbyID(req, res) {
         let currPlan = await planModel.findById(id);
         for (key in updateObj)
             currPlan[key] = updateObj[key];
-        // let newdb = await planModel.findByIdAndUpdate(id, updateObj, { new: true });  validator check nhi krega
         await currPlan.save();
         res.status(200).json({
             message: " plan Updated",

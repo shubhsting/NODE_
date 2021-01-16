@@ -13,7 +13,6 @@ async function getHomePage(req, res) {
 }
 async function getreviews(req, res) {
     try {
-
         let role = req.role;
         let reviews;
         if (role == "admin") {
@@ -21,9 +20,9 @@ async function getreviews(req, res) {
         }
         else {
             reviews = await reviewModel.find({ approved: true });
-           
+
         }
-        res.render("reviews.pug", { reviews: reviews,name: req.name });
+        res.render("reviews.pug", { reviews: reviews, name: req.name });
     }
     catch (error) {
         console.log(error);
@@ -38,7 +37,19 @@ async function getloginPage(req, res) {
         console.log(error);
     }
 }
-
+async function addanewPlan(req, res) {
+    try {
+        if (req.role == "admin")
+            res.render("addnewplan.pug", { name: req.name });
+        else {
+            let plans = await planModel.find();
+            res.render("homepage.pug", { name: req.name, plans: [plans[0], plans[1], plans[2]] });
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 
 async function getSignUpPage(req, res) {
     try {
@@ -54,7 +65,7 @@ async function getSignUpPage(req, res) {
 async function getPlansPage(req, res) {
     try {
         let plans = await planModel.find();
-        res.render("plans.pug", { name: req.name, plans: plans });
+        res.render("plans.pug", { name: req.name, plans: plans, role: req.role });
     }
     catch (error) {
         console.log(error);
@@ -84,3 +95,4 @@ module.exports.forgotPassPage = forgotPassPage;
 module.exports.getPlansPage = getPlansPage;
 module.exports.getProfilePage = getProfilePage;
 module.exports.getreviews = getreviews;
+module.exports.addanewPlan = addanewPlan;

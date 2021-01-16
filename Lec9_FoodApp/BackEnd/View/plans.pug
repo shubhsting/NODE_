@@ -3,3 +3,7 @@ block content
  .snip1214
   each plan in plans
    include planCard.pug
+ .linear
+  if role=="admin"
+   input.btn.sub(type='button' value='Update Plan')
+ 

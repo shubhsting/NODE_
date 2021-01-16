@@ -1,12 +1,14 @@
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:800);
-body{
-    display:flex;
+
+body {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
 }
+
 .snip1214 {
     font-family: 'Raleway', Arial, sans-serif;
     color: #000000;
@@ -15,7 +17,7 @@ body{
     width: 80%;
     max-width: 100%;
     margin: 30px 10px;
-    display:inline;
+    display: inline;
     justify-content: center;
     align-items: center;
     margin-left: 230px;
@@ -32,7 +34,7 @@ body{
     margin-top: 70px;
 }
 
-.snip1214  {
+.snip1214 {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -88,7 +90,7 @@ body{
 
 .snip1214 .plan-features li:nth-child(even) {
     background: rgba(0, 0, 0, 0.08);
-    
+
 }
 
 .snip1214 .plan-features i {
@@ -99,6 +101,22 @@ body{
 .snip1214 .plan-select {
     border-top: 1px solid #d2d7e2;
     padding: 10px 10px 0;
+}
+
+.btn {
+    width: 250px;
+    background: none;
+    border: 2px solid #4caf50;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+.linear {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .snip1214 .plan-select a {

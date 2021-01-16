@@ -4,7 +4,6 @@ let button = document.querySelector(".sub");
 let odiv = document.querySelector(".message");
 button.addEventListener("click", function (e) {
     e.preventDefault();
-
     if (email.value && password.value) {
         console.log(password.value);
         axios.post("http://localhost:3000/api/user/login", { email: email.value, password: password.value }).then((obj) => {

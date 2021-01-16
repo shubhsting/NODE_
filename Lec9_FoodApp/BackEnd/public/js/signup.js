@@ -10,7 +10,6 @@ button.addEventListener("click", function (e) {
     e.preventDefault();
     var selectedValue = role.options[role.selectedIndex].value;
     if (fname.value && email.value && password.value && cpassword.value) {
-        console.log(password.value);
         var selectedValue = role.options[role.selectedIndex].value;
         let signUpObj = {
             "name": fname.value,
@@ -26,7 +25,5 @@ button.addEventListener("click", function (e) {
                 console.log(error)
             })
     }
-    console.log(fname.value, email.value, password.value, cpassword.value, selectedValue);
-    alert("button clicked");
 })
 

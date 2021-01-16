@@ -3,13 +3,16 @@ block content
  .login-box
   h1 ADD PLAN
   .textbox
-    input(type='text' placeholder='Plan Name')
+    input#pname(type='text' placeholder='Plan Name')
   .textbox
-    input(type='text' placeholder='Duration')
+    input#dur(type='text' placeholder='Duration')
   .textbox
-    input(type='text' placeholder='Price')
+    input#price(type='text' placeholder='Price')
   .textbox
-    input(type='text' placeholder='Ratings')
+    input#rating(type='text' placeholder='Ratings')
   .textbox
-    input(type='text' placeholder='Discount')
+    input#discount(type='text' placeholder='Discount')
+  .message
   input.btn.sub(type='button' value='Add Plan')
+ block scripts
+  script(src="./js/newplan.js")

@@ -24,5 +24,9 @@ link(rel="stylesheet" , href="./css/plan.css")
     li
       i.ion-checkmark  
       | Free Delievery
+    if role=="admin"
+     li
+      |#{plan.id}
   .plan-select
     a(href='') Select Plan
+  
