@@ -103,7 +103,7 @@ body {
     padding: 10px 10px 0;
 }
 
-.btn {
+.btno {
     width: 250px;
     background: none;
     border: 2px solid #4caf50;
@@ -113,7 +113,11 @@ body {
     cursor: pointer;
     margin: 12px 0;
 }
-
+.btno:hover {
+    transform: scale(1.2);
+    border: 4px solid #4caf50;
+  }
+  
 .linear {
     display: flex;
     justify-content: space-evenly;

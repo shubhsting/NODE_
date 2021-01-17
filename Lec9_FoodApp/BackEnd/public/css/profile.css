@@ -58,7 +58,7 @@
     transform: translateY(-50%);
 }
 
-.btn {
+.btno {
     width: 250px;
     background: none;
     border: 2px solid #4caf50;
@@ -67,6 +67,11 @@
     font-size: 18px;
     cursor: pointer;
     margin: 12px 0;
+}
+
+.btno:hover {
+    transform: scale(1.2);
+    border: 4px solid #4caf50;
 }
 
 .wrapper .right .info_data,
