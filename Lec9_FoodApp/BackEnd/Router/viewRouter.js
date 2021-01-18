@@ -16,4 +16,5 @@ viewRouter.route("/logout").get(logout);
 viewRouter.route("/reviews").get(getreviews);
 viewRouter.route("/addnewplan").get(addanewPlan);
 viewRouter.route("/users").get(getUsers);
+
 module.exports.viewRouter = viewRouter;
