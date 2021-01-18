@@ -1,0 +1,9 @@
+extends base.pug
+block content
+ .snip1214
+  each user in users
+   include userCard.pug
+ .linear
+   input.btno(type='button' value='Delete User')
+   input.btno(type='button' value='Update User')
+ 

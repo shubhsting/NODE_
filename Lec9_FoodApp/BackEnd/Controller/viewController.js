@@ -71,6 +71,22 @@ async function getPlansPage(req, res) {
         console.log(error);
     }
 }
+
+
+async function getUsers(req, res) {
+    try {
+        let users = await userModel.find();
+        if (req.role == "admin")
+            res.render("users.pug", { name: req.name, users: users, role: req.role });
+        else {
+            let plans = await planModel.find();
+            res.render("homepage.pug", { name: req.name, plans: [plans[0], plans[1], plans[2]] });
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 async function forgotPassPage(req, res) {
     try {
         res.render("forgotpass.pug", { name: req.name });
@@ -96,3 +112,4 @@ module.exports.getPlansPage = getPlansPage;
 module.exports.getProfilePage = getProfilePage;
 module.exports.getreviews = getreviews;
 module.exports.addanewPlan = addanewPlan;
+module.exports.getUsers = getUsers;
