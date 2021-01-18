@@ -37,6 +37,15 @@ async function getloginPage(req, res) {
         console.log(error);
     }
 }
+
+async function writeReview(req, res) {
+    try {
+        res.render("writeReview.pug", { name: req.name });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 async function addanewPlan(req, res) {
     try {
         if (req.role == "admin")
@@ -113,3 +122,4 @@ module.exports.getProfilePage = getProfilePage;
 module.exports.getreviews = getreviews;
 module.exports.addanewPlan = addanewPlan;
 module.exports.getUsers = getUsers;
+module.exports.writeReview=writeReview;
