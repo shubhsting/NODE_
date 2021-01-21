@@ -103,6 +103,24 @@ body {
     padding: 10px 10px 0;
 }
 
+.hidden {
+    display: none;
+}
+
+#em {
+    border-bottom: 2px solid #4caf50;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    width: 200px;
+    /* float: left; */
+    /* margin: 0 10px; */
+}
+
 .btno {
     width: 250px;
     background: none;
@@ -113,11 +131,12 @@ body {
     cursor: pointer;
     margin: 12px 0;
 }
+
 .btno:hover {
     transform: scale(1.2);
     border: 4px solid #4caf50;
-  }
-  
+}
+
 .linear {
     display: flex;
     justify-content: space-evenly;
