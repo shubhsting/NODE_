@@ -1,13 +1,26 @@
 const express = require("express");
+const path = require("path");
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+const viewRouter = require("./Router/ViewRouter");
+
+
+
 app.use(cors());
+app.use('/', viewRouter);
+app.use(express.static(__dirname+"/public"));
+
+
+
+
 const http = require("http").createServer(app);
 const io = require("socket.io")(http, {
     cors: {
         origin: '*',
     }
 });
+
+
 
 io.on("connection", function (socket) {
     console.log(`${socket.id} connected`);
