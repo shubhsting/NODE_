@@ -2,9 +2,14 @@ const express = require("express");
 const viewRouter=express.Router();
 
 const path = require("path");
+const { showBoard, showlogin, showSignup } = require("../Controller/viewController");
 
-viewRouter.get('/board',function(req,res){
-    res.sendFile(path.join(__dirname,'..','public','master.html'));
-  });
+
+
+viewRouter.get('/board',showBoard);
+viewRouter.get('/',showlogin);
+viewRouter.get('/login',showlogin);
+viewRouter.get('/signup',showSignup);
+
 
 module.exports=viewRouter;
